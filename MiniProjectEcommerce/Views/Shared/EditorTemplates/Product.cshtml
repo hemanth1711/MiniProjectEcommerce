@@ -1,0 +1,17 @@
+﻿@model MiniProjectEcommerce.Models.Product
+<hr/>
+<div class="Form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <input asp-for="ProductName" disabled type="text"/>
+            <br/>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+            @Html.HiddenFor(e=>e.Id)
+            @Html.CheckBoxFor(e=>e.Availability)
+            <span asp-validation-for="Availability" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,57 @@
+﻿@using MiniProjectEcommerce
+@model MiniProjectEcommerce.Models.Inventory
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="row">
+    <h2 style="color:mediumpurple">
+        Edit A Inventory
+    </h2>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+        <div class="col-8">
+             <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ProductId"></label>
+            </div>
+             <div class="col-5">
+                <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.prodId"></select>
+            </div>
+            </div>
+            <div class="form-group row">
+            <span asp-validation-for="ProductId" class="text-danger"></span>
+              <div class=",col-2">
+                <label asp-for="quantity"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="quantity" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+           <div class=",col-2">
+                <label asp-for="reOrderLevel"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="reOrderLevel" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="reOrderLevel" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+            <input class="btn btn-primary" value="Update" type="submit"/>
+            <a asp-action="Index" class="btn btn-success"> Back to List</a>
+        </div>
+        </div>
+    </div>
+</form>
+</div>
+

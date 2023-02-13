@@ -1,0 +1,34 @@
+﻿@using MiniProjectEcommerce.Models;
+@model MiniProjectEcommerce.Models.Category
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 class="text-info"> Edit category</h2>
+<form asp-action="Edit" method="post">
+    <div class="p-4 rounded border">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+
+        <div class="form-group row">
+            <div class=",col-2">
+                <label asp-for="categoryName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="categoryName" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="categoryName" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input class="btn btn-primary" value="Update" type="submit"/>
+            <a asp-action="Index" class="btn btn-success"> Back to List</a>
+        </div>
+    </div>
+</form>
+

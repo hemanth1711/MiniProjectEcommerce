@@ -1,0 +1,44 @@
+﻿@model dynamic
+@using MiniProjectEcommerce.Models
+@{
+    ViewData["Title"] = "Dashbord for ecommer";
+}
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <th>
+            category name
+            </th>
+        </tr>
+         @foreach(Category c in Model.Category)
+            {
+        <tr>
+           
+                <td>@Html.DisplayFor(e=>c.categoryName)</td>
+        </tr> 
+            }
+    </table>
+    <table class="table table-striped">
+        <tr>
+            <th>
+            Product name
+            </th>
+            <th>
+            Product Price
+            </th>
+            <th>
+            Category Name
+            </th>
+        </tr>
+         @foreach(Product c in Model.Products)
+            {
+        <tr>
+
+                <td>@Html.DisplayFor(e=>c.ProductName)</td>
+                <td>@Html.DisplayFor(e=>c.ProductPrice)</td>
+                <td>@Html.DisplayFor(e=>c.category.categoryName)</td>
+        </tr> 
+            }
+    </table>
+</div>
+

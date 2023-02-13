@@ -1,0 +1,87 @@
+﻿@using MiniProjectEcommerce.Models
+@model MiniProjectEcommerce.Models.Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <h2 style="color:mediumpurple">
+        Add a Product
+    </h2>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+
+        <div class="form-group row">
+            <div class=",col-2">
+                <label asp-for="ProductName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="ProductName" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+             <div class=",col-2">
+                <label asp-for="productDescription"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="productDescription" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="productDescription" class="text-danger"></span>
+            <div class=",col-2">
+                <label asp-for="category.categoryName"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.categoryId"></select>
+            </div>
+            <span asp-validation-for="category.categoryName" class="text-danger"></span>
+            <div class=",col-2">
+                <label asp-for="ProductImageFile"> </label>
+            </div>
+            <div class="col-5">
+                <input asp-for="ProductImageFile" class="form-control" type="file" id="validationCustom05" required>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="ProductImageFile" class="text-danger"></span>
+            <div class=",col-2">
+                <label asp-for="ProductPrice"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="ProductPrice" class="form-control" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="ProductPrice" class="text-danger"></span>
+             <div class=",col-2">
+                <label asp-for="Availability"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Availability" type="checkbox"/>
+            </div>
+            <span asp-validation-for="Availability" class="text-danger"></span>
+            <div class=",col-2">
+                <label >Quantity</label>
+            </div>
+            <div class="col-5">
+                <input name="qty" id="qty" type="text"/>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <input class="btn btn-primary" value="save" type="submit"/>
+            <a asp-action="Index" class="btn btn-success"> Back to List</a>
+        </div>
+    </div>
+</form>
+</div>
+

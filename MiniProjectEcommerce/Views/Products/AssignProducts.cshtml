@@ -1,0 +1,17 @@
+﻿@using MiniProjectEcommerce
+@model IEnumerable<MiniProjectEcommerce.Models.Product>
+@{
+    ViewData["Title"] = "AssignProducts";
+}
+
+<h1>Assign Products</h1>
+
+<div class="row">
+    <div class="col-4">
+        <form asp-action="AssignProducts">
+            @Html.EditorForModel()
+            <input type="submit" value="Add Products"/>
+        </form>
+    </div>
+</div>
+

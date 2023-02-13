@@ -1,0 +1,55 @@
+﻿@using MiniProjectEcommerce
+@model  IEnumerable<MiniProjectEcommerce.Models.ProductSold>
+@{
+    ViewData["Title"] = "MyOrders";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Home.css"/>
+</head>
+<div>
+    <h1>
+        My Order's'
+    </h1>
+</div>
+<div class="row cart">
+    <table class="col-12"> 
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                SubTotal
+            </th>
+            <th>
+                date purchased
+            </th>
+        </tr>
+        @foreach(var p in Model)
+        {
+            <tr>
+            <td>
+                <div class="cart-in">
+                    <img src="~/@p.product.ProductImageUrl" height="160px"/>
+                    <h5 class="text-right d-inline">@p.product.ProductName</h5>
+                    <br/>
+                    <!-- <h5 class="text-right" style="color:#fb3531">/-</h5> -->
+                </div>
+            </td>
+            <td>
+                <input type="number" readonly="readonly" value="1" />
+            </td>
+            <td>
+                @p.product.ProductPrice
+            </td>
+            <td>
+                @p.sale.Timestamp
+            </td>
+        </tr>
+        }
+    </table>
+</div>
+

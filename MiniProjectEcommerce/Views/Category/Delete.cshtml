@@ -1,0 +1,35 @@
+﻿@using MiniProjectEcommerce.Models;
+@model MiniProjectEcommerce.Models.Category
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="text-info"> Details category</h2>
+<form asp-action="Delete" method="post">
+    <div class="p-4 rounded border">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+
+        <div class="form-group row">
+            <div class=",col-2">
+                <label asp-for="categoryName"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="categoryName" class="form-control" readonly="readonly" id="validationCustom05" required/>
+                <div class="invalid-feedback">
+                    Please give input
+                </div>
+            </div>
+            <span asp-validation-for="categoryName" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input class="btn btn-danger" value="Delete" type="submit"/>
+            <a asp-action="Index" class="btn btn-success"> Back to List</a>
+        </div>
+    </div>
+</form>
+
+

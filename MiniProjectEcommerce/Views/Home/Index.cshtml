@@ -1,0 +1,84 @@
+﻿@using MiniProjectEcommerce;
+@model IEnumerable<MiniProjectEcommerce.Models.Product>;
+<head>
+    <link rel="stylesheet" href="~/css/Home.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<form asp-action="Index" method="post">
+<!--<div class="row">
+    <div class="col-4">
+        <h1>
+            Happy Shopping <br />
+            Get Amazing Discounts
+        </h1>
+        <p>
+            Whoever said that money can't buy happiness simply
+            didn't know where to go shopping.
+        </p>
+        <a href="" class="btn">
+            Explore Now &#8594
+        </a>
+    </div>
+    <div class="col-4">
+        <img src="~/Images/shop.png"/>
+    </div>
+</div> -->
+ <div>
+<header class="header">
+        <div class="top-center-box">
+            <h1 class="Main-heading-common">
+                <span class="main-heading-big">
+                     Purchase
+                </span>
+                <span class="main-heading-small">
+                    Get Amazing Discounts
+                </span>
+            </h1>
+            <a href="#" class="btn btn-white btn-anim">Explor</a>
+        </div>
+    </header>
+</div>
+<div>
+    <h1 class="text-center">
+        All Products
+    </h1>
+</div>
+<br />
+<br />
+<div class="row">
+    @foreach(var pro in Model)
+    {
+    <div class="col-md-4">
+        <div class="card mt-3 h-100">
+            <div class="align-items-center p-2 text-center">
+                <img src="~/@pro.ProductImageUrl" id="img_jq" class="rounded" height="160px"/>
+                <h5 id="pname">
+                    @pro.ProductName
+                </h5>
+                <div class="mt-3 info">
+                    <span class="d-block" id="pdesc">
+                        @pro.productDescription
+                    </span>
+                </div>
+                <div class="mt-3 text-dark cost-bg">
+                    <span id="pprice">
+                        Rs.@pro.ProductPrice /-
+                    </span>
+                </div>
+                <div class="p-3 text-center text-white mt-3 cursor shoe-bg">
+                    <a class="text-uppercase" asp-action="Details" asp-route-id="@pro.Id">
+                        Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+</form>
+

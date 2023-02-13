@@ -1,0 +1,48 @@
+﻿@using MiniProjectEcommerce
+@model MiniProjectEcommerce.Models.Product
+@{
+    ViewData["Title"] = "Details";
+}
+<form asp-action="Details" method="post">
+<head>
+    <link rel="stylesheet" href="~/css/Home.css"/>
+</head>
+<h1>
+    Product Details
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img  src="~/@Model.ProductImageUrl" height="50%"/>
+        </div>
+        <div class="col-4">
+            <p>
+                <input type="hidden" asp-for="ProductPrice"/>
+                @Model.ProductName
+            </p>
+            <input type="hidden"/>
+            <h1>
+                @Model.productDescription
+            </h1>
+            <h3>
+               Rs.@Model.ProductPrice /-
+            </h3>
+            <select asp-for="CategoryId">
+                <option>
+                    Qty
+                </option>
+                @for(int i=1;i<10;i++)
+                {
+                   <option>
+                    @i
+                </option> 
+                }
+            </select>
+            <br />
+            <input class="btn" value="Add To Cart" type="submit"/>
+            <a asp-action="payment" asp-route-id="@Model.Id" class="btn btn12" >Buy Now</a>
+        </div>
+    </div>
+</div>
+</form>
+

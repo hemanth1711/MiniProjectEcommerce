@@ -1,0 +1,74 @@
+﻿@using MiniProjectEcommerce
+@model  IEnumerable<MiniProjectEcommerce.Models.Cart>
+@{
+    ViewData["Title"] = "Cart";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Home.css"/>
+</head>
+<div>
+    <h1>
+        My Cart
+    </h1>
+</div>
+<div class="row cart">
+    <table class="col-12"> 
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                SubTotal
+            </th>
+        </tr>
+        @foreach(var p in Model)
+        {
+            <tr>
+            <td>
+                <div class="cart-in">
+                    <img src="~/@p.product.ProductImageUrl" height="160px"/>
+                    <h5 class="text-right d-inline">@p.product.ProductName</h5>
+                    <br/>
+                    <h5 class="text-right" style="color:#fb3531">@p.product.ProductPrice/-</h5>
+                    <br/>
+                    <a class="btn" asp-action="Remove_cart" asp-route-id="@p.Id">Remove Item From Cart</a>
+
+                </div>
+            </td>
+            <td>
+                <input type="number" readonly="readonly" value="@p.productQuantity" />
+            </td>
+            <td>
+                @p.totalcartPrice
+            </td>
+        </tr>
+        }
+        <tr>
+            <td>
+               
+            </td>
+            <td>
+                 <h1>
+                    Total Prize
+                </h1>
+            </td>
+            <td>
+                <h5>@ViewData["hello"]</h5>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               
+            </td>
+            <td>
+            </td>
+            <td>
+                <a  class="btn btn12" >Buy Now</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
